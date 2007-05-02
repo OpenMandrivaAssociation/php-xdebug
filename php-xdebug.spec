@@ -1,4 +1,4 @@
-%define snap 20061107
+%define snap 20070428
 
 %define modname xdebug
 %define dirname %{modname}
@@ -8,7 +8,7 @@
 Summary:	Provides functions for function traces and profiling for PHP5
 Name:		php-%{modname}
 Version:	2.0.0
-Release:	%mkrel 0.%{snap}.3
+Release:	%mkrel 0.%{snap}.0
 Group:		Development/PHP
 License:	BSD-like
 URL:		http://xdebug.org/
