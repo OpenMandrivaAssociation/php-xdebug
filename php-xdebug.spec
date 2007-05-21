@@ -1,4 +1,4 @@
-%define snap 20070428
+%define snap 20070517
 
 %define modname xdebug
 %define dirname %{modname}
@@ -96,5 +96,3 @@ install -m0755 debugclient/debugclient %{buildroot}%{_bindir}/
 %config(noreplace) %attr(0644,root,root) %{_sysconfdir}/php.d/%{inifile}
 %attr(0755,root,root) %{_bindir}/debugclient
 %attr(0755,root,root) %{_libdir}/php/extensions/%{soname}
-
-
