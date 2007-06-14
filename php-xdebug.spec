@@ -8,7 +8,7 @@
 Summary:	Provides functions for function traces and profiling for PHP5
 Name:		php-%{modname}
 Version:	2.0.0
-Release:	%mkrel 0.%{snap}.0
+Release:	%mkrel 0.%{snap}.1
 Group:		Development/PHP
 License:	BSD-like
 URL:		http://xdebug.org/
@@ -20,8 +20,6 @@ Requires:	gdb
 BuildRequires:	php-devel >= 3:5.2.0
 #BuildRequires:	edit-devel
 #BuildRequires:	termcap-devel
-Provides:	php5-xdebug
-Obsoletes:	php5-xdebug
 Conflicts:	php-apc php-dbg
 Epoch:		2
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
@@ -55,6 +53,15 @@ cp %{SOURCE1} %{inifile}
 perl -pi -e "s|/usr/lib|%{_libdir}|g" %{inifile}
 
 %build
+export CFLAGS="%{optflags}"
+export CXXFLAGS="%{optflags}"
+export FFLAGS="%{optflags}"
+
+%if %mdkversion >= 200710
+export CFLAGS="$CFLAGS -fstack-protector"
+export CXXFLAGS="$CXXFLAGS -fstack-protector"
+export FFLAGS="$FFLAGS -fstack-protector"
+%endif
 
 phpize
 %configure2_5x \
@@ -72,7 +79,7 @@ pushd debugclient
 
 #  the autostuff is borked...
 touch config.h
-gcc %{optflags} -o debugclient main.c usefulstuff.c  -lnsl
+gcc $CFLAGS -o debugclient main.c usefulstuff.c  -lnsl
 
 popd
 
