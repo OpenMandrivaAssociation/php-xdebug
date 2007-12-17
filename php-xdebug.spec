@@ -18,7 +18,6 @@ BuildRequires:	php-devel >= 3:5.2.0
 #BuildRequires:	termcap-devel
 Conflicts:	php-apc php-dbg
 Epoch:		2
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 The Xdebug extension helps you debugging your script by providing a lot of
