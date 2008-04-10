@@ -5,8 +5,8 @@
 
 Summary:	Provides functions for function traces and profiling for PHP5
 Name:		php-%{modname}
-Version:	2.0.2
-Release:	%mkrel 2
+Version:	2.0.3
+Release:	%mkrel 1
 Group:		Development/PHP
 License:	BSD-like
 URL:		http://www.xdebug.org/
