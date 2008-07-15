@@ -6,7 +6,7 @@
 Summary:	Provides functions for function traces and profiling for PHP5
 Name:		php-%{modname}
 Version:	2.0.3
-Release:	%mkrel 2
+Release:	%mkrel 3
 Group:		Development/PHP
 License:	BSD-like
 URL:		http://www.xdebug.org/
@@ -18,7 +18,7 @@ BuildRequires:	php-devel >= 3:5.2.0
 #BuildRequires:	termcap-devel
 Conflicts:	php-apc php-dbg
 Epoch:		2
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 The Xdebug extension helps you debugging your script by providing a lot of
