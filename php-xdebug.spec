@@ -6,7 +6,7 @@
 Summary:	Provides functions for function traces and profiling for PHP5
 Name:		php-%{modname}
 Version:	2.0.3
-Release:	%mkrel 3
+Release:	%mkrel 4
 Group:		Development/PHP
 License:	BSD-like
 URL:		http://www.xdebug.org/
@@ -16,7 +16,6 @@ Requires:	gdb
 BuildRequires:	php-devel >= 3:5.2.0
 #BuildRequires:	edit-devel
 #BuildRequires:	termcap-devel
-Conflicts:	php-apc php-dbg
 Epoch:		2
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
