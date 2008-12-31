@@ -1,3 +1,7 @@
+%if %mdkversion < 200900
+%define ldflags %{nil}
+%endif
+
 %define modname xdebug
 %define dirname %{modname}
 %define soname %{modname}.so
@@ -5,8 +9,8 @@
 
 Summary:	Provides functions for function traces and profiling for PHP5
 Name:		php-%{modname}
-Version:	2.0.3
-Release:	%mkrel 5
+Version:	2.0.4
+Release:	%mkrel 1
 Group:		Development/PHP
 License:	BSD-like
 URL:		http://www.xdebug.org/
@@ -66,12 +70,12 @@ pushd debugclient
 
 #  the autostuff is borked...
 touch config.h
-gcc $CFLAGS -o debugclient main.c usefulstuff.c -lnsl
+gcc $CFLAGS %{ldflags} -o debugclient main.c usefulstuff.c -lnsl
 
 popd
 
 %install
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 install -d %{buildroot}%{_libdir}/php/extensions
 install -d %{buildroot}%{_sysconfdir}/php.d
@@ -94,7 +98,7 @@ if [ "$1" = "0" ]; then
 fi
 
 %clean
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 %files 
 %defattr(-,root,root)
