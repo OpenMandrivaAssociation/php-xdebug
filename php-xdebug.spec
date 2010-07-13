@@ -10,11 +10,11 @@
 Summary:	Provides functions for function traces and profiling for PHP5
 Name:		php-%{modname}
 Version:	2.1.0
-Release:	%mkrel 0.1.RC1.1
+Release:	%mkrel 1
 Group:		Development/PHP
 License:	BSD-like
 URL:		http://www.xdebug.org/
-Source0:	http://www.xdebug.org/files/%{modname}-%{version}RC1.tgz
+Source0:	http://www.xdebug.org/files/%{modname}-%{version}.tgz
 Source1:	%{modname}.ini
 Requires:	gdb
 BuildRequires:	php-devel >= 3:5.2.0
@@ -43,7 +43,7 @@ Xdebug also provides:
 
 %prep
 
-%setup -q -n %{modname}-%{version}RC1
+%setup -q -n %{modname}-%{version}
 [ "../package*.xml" != "/" ] && mv ../package*.xml .
 
 cp %{SOURCE1} %{inifile}
