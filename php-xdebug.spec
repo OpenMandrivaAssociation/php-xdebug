@@ -1,7 +1,3 @@
-%if %mdkversion < 200900
-%define ldflags %{nil}
-%endif
-
 %define modname xdebug
 %define dirname %{modname}
 %define soname %{modname}.so
@@ -9,8 +5,8 @@
 
 Summary:	Provides functions for function traces and profiling for PHP5
 Name:		php-%{modname}
-Version:	2.1.2
-Release:	%mkrel 4
+Version:	2.1.4
+Release:	1
 Group:		Development/PHP
 License:	BSD-like
 URL:		http://www.xdebug.org/
@@ -18,10 +14,7 @@ Source0:	http://www.xdebug.org/files/%{modname}-%{version}.tgz
 Source1:	%{modname}.ini
 Requires:	gdb
 BuildRequires:	php-devel >= 3:5.2.0
-#BuildRequires:	edit-devel
-#BuildRequires:	termcap-devel
 Epoch:		2
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 The Xdebug extension helps you debugging your script by providing a lot of
@@ -75,7 +68,6 @@ gcc $CFLAGS %{ldflags} -o debugclient main.c usefulstuff.c -lnsl
 popd
 
 %install
-rm -rf %{buildroot}
 
 install -d %{buildroot}%{_libdir}/php/extensions
 install -d %{buildroot}%{_sysconfdir}/php.d
@@ -86,22 +78,14 @@ install -m0755 %{soname} %{buildroot}%{_libdir}/php/extensions/
 install -m0755 debugclient/debugclient %{buildroot}%{_bindir}/
 
 %post
-if [ -f /var/lock/subsys/httpd ]; then
-    %{_initrddir}/httpd restart >/dev/null || :
-fi
+/bin/systemctl daemon-reload >/dev/null 2>&1 || :
 
 %postun
 if [ "$1" = "0" ]; then
-    if [ -f /var/lock/subsys/httpd ]; then
-	%{_initrddir}/httpd restart >/dev/null || :
-    fi
+    /bin/systemctl daemon-reload >/dev/null 2>&1 || :
 fi
 
-%clean
-rm -rf %{buildroot}
-
 %files 
-%defattr(-,root,root)
 %doc CREDITS Changelog LICENSE NEWS README
 %attr(0644,root,root) %config(noreplace) %{_sysconfdir}/php.d/%{inifile}
 %attr(0755,root,root) %{_bindir}/debugclient
