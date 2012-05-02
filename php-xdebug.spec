@@ -86,7 +86,7 @@ if [ "$1" = "0" ]; then
 fi
 
 %files 
-%doc CREDITS Changelog LICENSE NEWS README
+%doc CREDITS LICENSE NEWS README
 %attr(0644,root,root) %config(noreplace) %{_sysconfdir}/php.d/%{inifile}
 %attr(0755,root,root) %{_bindir}/debugclient
 %attr(0755,root,root) %{_libdir}/php/extensions/%{soname}
