@@ -12,6 +12,7 @@ License:	BSD-like
 URL:		http://www.xdebug.org/
 Source0:	http://www.xdebug.org/files/%{modname}-%{version}.tgz
 Source1:	%{modname}.ini
+Patch0:		xdebug-2.2.1-fmtstr.diff
 Requires:	gdb
 BuildRequires:	php-devel >= 3:5.2.0
 Epoch:		2
@@ -38,6 +39,7 @@ Xdebug also provides:
 
 %setup -q -n %{modname}-%{version}
 [ "../package*.xml" != "/" ] && mv ../package*.xml .
+%patch0 -p0
 
 cp %{SOURCE1} %{inifile}
 
