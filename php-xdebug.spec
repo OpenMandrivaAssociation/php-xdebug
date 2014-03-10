@@ -6,14 +6,13 @@
 Summary:	Provides functions for function traces and profiling for PHP5
 Name:		php-%{modname}
 Epoch:		2
-Version:	2.2.1
-Release:	5
+Version:	2.2.4
+Release:	1
 Group:		Development/PHP
 License:	BSD-like
 Url:		http://www.xdebug.org/
 Source0:	http://www.xdebug.org/files/%{modname}-%{version}.tgz
 Source1:	%{modname}.ini
-Patch0:		xdebug-2.2.1-fmtstr.diff
 BuildRequires:	php-devel >= 3:5.2.0
 Requires:	gdb
 
@@ -39,7 +38,6 @@ Xdebug also provides:
 
 %setup -q -n %{modname}-%{version}
 [ "../package*.xml" != "/" ] && mv ../package*.xml .
-%patch0 -p0
 
 cp %{SOURCE1} %{inifile}
 

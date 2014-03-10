@@ -1,2 +1,4 @@
+removed_sources:
+  xdebug-2.2.1.tgz: 8b4aec5f68f2193d07bf4839ee46ff547740ed7e
 sources:
-  "xdebug-2.2.1.tgz": 8b4aec5f68f2193d07bf4839ee46ff547740ed7e
+  xdebug-2.2.4.tgz: 586a7f24330f5139b7b8cec8ed96b99f3d3a753d
