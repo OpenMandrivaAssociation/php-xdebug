@@ -10,7 +10,7 @@ Version:	2.2.4
 Release:	6
 Group:		Development/PHP
 License:	BSD-like
-Url:		http://www.xdebug.org/
+Url:		https://www.xdebug.org/
 Source0:	http://www.xdebug.org/files/%{modname}-%{version}.tgz
 Source1:	%{modname}.ini
 BuildRequires:	php-devel >= 3:5.2.0
